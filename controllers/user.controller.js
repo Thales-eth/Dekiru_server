@@ -44,9 +44,8 @@ const getUserFriends = (req, res) => {
 const getUserMatch = async (req, res) => {
     const { id } = req.params
 
-    // HACER QUE NO PUEDA SER UN MATCH REPETIDO!!!
-
     const mainUser = await User.findById(id)
+
     const mainUserInterests = mainUser.interests
 
     const userInterestsSet = new Set(mainUserInterests)

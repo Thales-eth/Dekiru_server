@@ -19,6 +19,7 @@ const getOneClass = (req, res, next) => {
 
     Class
         .findById(class_id)
+        .populate({ path: "teacher", populate: { path: "reviews", populate: { path: "author" } } })
         .then(singleClass => res.status(200).json(singleClass))
         .catch(err => res.status(500).json({ error: err.message }))
 }

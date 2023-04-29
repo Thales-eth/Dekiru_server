@@ -24,4 +24,7 @@ router.use("/review", reviewRoutes)
 const uploadRoutes = require("./upload.routes")
 router.use("/upload", uploadRoutes)
 
+const payMentRoutes = require("./stripe.routes")
+router.use("/payment", payMentRoutes)
+
 module.exports = router;
