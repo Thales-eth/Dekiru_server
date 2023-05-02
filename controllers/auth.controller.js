@@ -1,20 +1,11 @@
 const User = require("../models/User.model")
-const jwt = require('jsonwebtoken')
 
 const signup = (req, res, next) => {
     const { username, email, password, language, avatar, role, age, interests, location } = req.body
 
     User.create({ username, email, password, avatar, language, role, age, interests, location })
         .then(user => {
-            const { _id, email, username } = user;
-            const payload = { _id, email, username }
-
-            const authToken = jwt.sign(
-                payload,
-                process.env.TOKEN_SECRET,
-                { algorithm: 'HS256', expiresIn: "12h" }
-            )
-
+            const authToken = user.signToken()
             res.status(200).json({ authToken })
         })
         .catch(err => {
@@ -41,16 +32,7 @@ const login = (req, res, next) => {
             }
 
             if (foundUser.comparePassword(password)) {
-
-                const { _id, email, username } = foundUser;
-                const payload = { _id, email, username }
-
-                const authToken = jwt.sign(
-                    payload,
-                    process.env.TOKEN_SECRET,
-                    { algorithm: 'HS256', expiresIn: "48h" }
-                )
-
+                const authToken = foundUser.signToken()
                 res.status(200).json({ authToken })
             }
 

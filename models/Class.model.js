@@ -12,6 +12,7 @@ const classSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
+    productId: { type: String, default: "" }
     // STREAMING REQUIREMENTS...
 },
     {

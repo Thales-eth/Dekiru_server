@@ -1,7 +1,8 @@
 const router = require("express").Router()
-const fileUploader = require("../middlewares/upload")
-const { uploadImage } = require("../controllers/uploadController")
+const { imageUploadMiddleware, audioUploadMiddleware } = require("../middlewares/upload")
+const { uploadImage, uploadAudio } = require("../controllers/uploadController")
 
-router.post("/", fileUploader.single("imageUrl"), uploadImage)
+router.post("/", imageUploadMiddleware.single("imageUrl"), uploadImage)
+router.post("/audio", audioUploadMiddleware.single("audioUrl"), uploadAudio)
 
 module.exports = router

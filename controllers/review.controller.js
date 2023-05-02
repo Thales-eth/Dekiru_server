@@ -36,6 +36,7 @@ const createReview = (req, res, next) => {
         .create({ rating, title, description, author })
         .then(({ _id: review_id }) => User.findByIdAndUpdate(user_id, { $addToSet: { reviews: review_id } }, { new: true }).populate("reviews"))
         .then(updatedUser => {
+            console.log("WHO ARE UUUU", updatedUser)
             return updatedUser.calculateScore(updatedUser.reviews)
         })
         .then(user => {
@@ -44,7 +45,7 @@ const createReview = (req, res, next) => {
         .then(user => {
             res.status(200).json(user)
         })
-        .catch(err => res.status(500).json({ error: err.message }))
+        .catch(err => next(err))
 }
 
 const editReview = async (req, res, next) => {
@@ -67,13 +68,15 @@ const editReview = async (req, res, next) => {
 }
 
 const deleteReview = (req, res) => {
-    const { id } = req.params
-    const { user_id } = req.params
+    const { id, user_id } = req.params
+
+    console.log(req.params)
 
     Review
         .findByIdAndDelete(id)
         .then(() => User.findByIdAndUpdate(user_id, { $pull: { reviews: id } }, { new: true }).populate({ path: "reviews", populate: { path: "author" } }))
         .then(updatedUser => {
+            console.log("nul????", updatedUser)
             return updatedUser.calculateScore(updatedUser.reviews)
         })
         .then(updatedUser => {

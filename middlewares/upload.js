@@ -16,4 +16,14 @@ const storage = new CloudinaryStorage({
     }
 });
 
-module.exports = multer({ storage });
+const musicStorage = new CloudinaryStorage({
+    cloudinary,
+    params: {
+        allowed_formats: ["wav", "webm"],
+        folder: "audio",
+        resource_type: "raw",
+        use_filename: true
+    }
+});
+
+module.exports = { imageUploadMiddleware: multer({ storage }), audioUploadMiddleware: multer({ musicStorage }) };

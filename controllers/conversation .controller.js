@@ -36,6 +36,15 @@ const joinConversation = async (req, res) => {
     const { participants } = req.body
 
     try {
+        const loggedUser = await User.findById(participants[1]).populate("conversations")
+        loggedUser.conversations.forEach(conversation => {
+            conversation.participants.forEach(participant => {
+                if (participant.toString() === participants[0]) {
+                    throw new Error("Conversation already exists")
+                }
+            })
+        })
+
         const createdConversation = await Conversation.create({ participants, messages: [] })
         participants.forEach(async (participantId) => {
             await User.findByIdAndUpdate(participantId, { $addToSet: { conversations: createdConversation._id.toString() } })

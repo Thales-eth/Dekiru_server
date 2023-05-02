@@ -1,5 +1,6 @@
 const Class = require("../models/Class.model")
 const User = require("../models/User.model")
+const stripe = require('stripe')(`sk_test_${process.env.STRIPE_API_KEY}`);
 
 const getClasses = (req, res) => {
     const { skipValue } = req.params
@@ -29,9 +30,23 @@ const createClass = async (req, res, next) => {
 
     try {
         const singleTeacher = await User.findById(teacher)
-        const createdClass = await Class.create({ title, description, teacher })
-        const newUser = await User.findByIdAndUpdate(singleTeacher._id, { $addToSet: { classes: createdClass._id } }, { new: true })
-        console.log("EL NUEVO USERINNOO ===>", newUser)
+
+        const stripeClass = await stripe.products.create({
+            name: title,
+            description,
+            images: [singleTeacher.avatar],
+        });
+
+        const price = await stripe.prices.create({
+            unit_amount: 2000,
+            currency: 'usd',
+            product: stripeClass.id,
+        })
+
+        const createdClass = await Class.create({ title, description, teacher, productId: price.id })
+
+        await User.findByIdAndUpdate(singleTeacher._id, { $addToSet: { classes: createdClass._id } }, { new: true })
+
         res.sendStatus(201)
     }
     catch (error) {
@@ -39,7 +54,7 @@ const createClass = async (req, res, next) => {
     }
 }
 
-const joinClass = (req, res, next) => {
+const joinClass = (req, res) => {
     const { class_id, user_id } = req.params
 
     User
@@ -48,17 +63,30 @@ const joinClass = (req, res, next) => {
         .catch(err => res.status(500).json({ error: err.message }))
 }
 
-const leaveClass = (req, res, next) => {
+const leaveClass = (req, res) => {
     const { class_id, user_id } = req.params
 
     User
-        .findByIdAndUpdate(user_id, { $pull: { classes: class_id } })
-        .then(() => User.findById(user_id).populate({ path: "classes", populate: { path: "teacher" } }))
-        .then(user => res.status(200).json(user.classes))
+        .findByIdAndUpdate(user_id, { $pull: { classes: class_id } }, { new: true })
+        .populate([{
+            path: "matches",
+        },
+        {
+            path: "classes",
+            populate: {
+                path: "teacher"
+            }
+        },
+        {
+            path: "penfriends",
+        }
+        ]
+        )
+        .then(user => res.status(200).json(user))
         .catch(err => res.status(500).json({ error: err.message }))
 }
 
-const editClass = (req, res) => {
+const editClass = (req, res, next) => {
     const { class_id } = req.params
     const { title, description, teacher } = req.body
 
@@ -68,15 +96,24 @@ const editClass = (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }))
 }
 
-const deleteClass = (req, res) => {
-    const { class_id, teacher_id } = req.params
+const deleteClass = async (req, res) => {
+    const { class_id } = req.params
+    console.log("LA CLASEEECITA", class_id)
 
-    Class
-        .findByIdAndDelete(class_id)
-        .then(() => User.findByIdAndUpdate(teacher_id, { $pull: { classes: teacher_id } }))
-        .then(() => Class.find().populate("teacher"))
-        .then(allClasses => res.status(200).json(allClasses))
-        .catch(err => res.status(500).json({ error: err.message }))
+    try {
+        await Class.findByIdAndDelete(class_id)
+        const enrolledUsers = await User.find({ classes: class_id })
+        console.log("LOS ENROLLED", enrolledUsers)
+        enrolledUsers.forEach(async (enrolledUser) => {
+            await User.findByIdAndUpdate(enrolledUser._id, { $pull: { classes: class_id } }, { new: true })
+        })
+
+        res.sendStatus(200)
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).json({ error: error.message })
+    }
 }
 
 

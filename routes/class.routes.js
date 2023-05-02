@@ -7,6 +7,6 @@ router.post("/create", createClass)
 router.put("/join/:class_id/:user_id", joinClass)
 router.put("/leave/:class_id/:user_id", leaveClass)
 router.put("/edit/:class_id", editClass)
-router.delete("/delete/:class_id/:teacher_id", deleteClass)
+router.delete("/delete/:class_id", deleteClass)
 
 module.exports = router

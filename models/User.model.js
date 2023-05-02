@@ -1,6 +1,8 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcryptjs")
 const saltRounds = +process.env.SALT
+const jwt = require('jsonwebtoken')
+
 
 const userSchema = new Schema(
   {
@@ -63,16 +65,17 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.pre("save", function (next) {
+userSchema.pre("save", async function (next) {
 
-  bcrypt
-    .genSalt(saltRounds)
-    .then(salt => {
-      let hashedPwd = bcrypt.hashSync(this.password, salt)
-      this.password = hashedPwd
-      next()
-    })
-    .catch(err => next(err))
+  try {
+    const salt = await bcrypt.genSalt(saltRounds)
+    const hashedPwd = await bcrypt.hash(this.password, salt)
+    this.password = hashedPwd
+    next()
+  }
+  catch (error) {
+    next(error)
+  }
 })
 
 userSchema.index({ location: '2dsphere' })
@@ -94,6 +97,19 @@ userSchema.methods.calculateScore = function (reviews) {
 
 userSchema.methods.comparePassword = function (plainPwd) {
   return bcrypt.compareSync(plainPwd, this.password)
+}
+
+userSchema.methods.signToken = function () {
+  const { _id, email, username } = this;
+  const payload = { _id, email, username }
+
+  const authToken = jwt.sign(
+    payload,
+    process.env.TOKEN_SECRET,
+    { algorithm: 'HS256', expiresIn: "48h" }
+  )
+
+  return authToken
 }
 
 const User = model("User", userSchema);

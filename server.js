@@ -11,14 +11,21 @@ const Conversation = require("./models/Conversation.model")
 io.on('connection', (socket) => {
   console.log('Client connected:', socket.id);
 
+  socket.on('joinConversation', ({ conversation_id, user_id }) => {
+    console.log("ESTO TIRA PAKO??")
+    socket.join(conversation_id);
+    console.log(`User ${user_id} joined conversation ${conversation_id}`);
+  });
+
   socket.on('createMessage', async ({ conversation_id, message }) => {
     const { sender, message: msgContent } = message
-    console.log("DESDE EL SOKITO ==>", msgContent)
-    // CON ESTOS DATOS HABRÍA QUE EJECUTAR TODA LA LÓGICA DE LA APLICACIÓN...
+
     try {
       const createdMsg = await Message.create({ sender, message: msgContent })
+      const populatedMsg = await Message.findById(createdMsg._id).populate("sender")
       await Conversation.findByIdAndUpdate(conversation_id, { $push: { messages: createdMsg._id } }, { new: true })
-      io.emit('myCustomEventResponse', `EL MENSAJE CREADO ==> ${createdMsg}`);
+
+      io.to(conversation_id).emit('successfulMsgCreation', populatedMsg);
     }
     catch (error) {
       console.log(error)

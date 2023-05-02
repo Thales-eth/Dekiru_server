@@ -1,6 +1,5 @@
 const User = require("../models/User.model")
 const Post = require("../models/Post.model")
-const jwt = require('jsonwebtoken')
 
 const listAllPeople = (req, res) => {
     User
@@ -9,7 +8,7 @@ const listAllPeople = (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }))
 }
 
-const listHomePageUsers = (req, res) => {
+const listHomePageUsers = (_req, res) => {
     User
         .find({ username: { $in: ["もも", "あみ", "ペドロ"] } })
         .then(users => res.status(200).json(users))
@@ -116,6 +115,12 @@ const getPopulatedUser = (req, res) => {
         },
         {
             path: "penfriends",
+        },
+        {
+            path: "reviews",
+            populate: {
+                path: "author"
+            }
         }
         ]
         )
@@ -164,21 +169,7 @@ const editUser = (req, res) => {
     User
         .findByIdAndUpdate(id, { username, email, avatar, language, age, interests, location }, { new: true })
         .then(editedUser => {
-
-            const { _id, email, username } = editedUser
-
-            console.log("EL SEÑORITO LLEGA =>", editedUser)
-
-            const payload = { _id, email, username }
-
-            const newToken = jwt.sign(
-                payload,
-                process.env.TOKEN_SECRET,
-                { algorithm: 'HS256', expiresIn: "48h" }
-            )
-
-            console.log("NANIII???", newToken)
-
+            const newToken = editedUser.signToken()
             res.status(200).json({ newToken })
         })
         .catch(err => res.status(500).json({ error: err.message }))
@@ -210,6 +201,7 @@ const deleteUser = async (req, res) => {
     try {
         await User.findByIdAndDelete(id)
         await Post.deleteMany({ author: id })
+        await Message.deleteMany({ sender: id })
         res.sendStatus(200)
     }
     catch (error) {
