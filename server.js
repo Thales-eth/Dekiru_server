@@ -11,8 +11,12 @@ const Conversation = require("./models/Conversation.model")
 io.on('connection', (socket) => {
   console.log('Client connected:', socket.id);
 
+  socket.on('leaveConversation', ({ conversation_id, user_id }) => {
+    socket.leave(conversation_id);
+    console.log(`User ${user_id} left conversation ${conversation_id}`);
+  });
+
   socket.on('joinConversation', ({ conversation_id, user_id }) => {
-    console.log("ESTO TIRA PAKO??")
     socket.join(conversation_id);
     console.log(`User ${user_id} joined conversation ${conversation_id}`);
   });
