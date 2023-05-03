@@ -1,40 +1,41 @@
-#   "####" Server 
+# Dekiru Server 
 
-Supein is A Japanese/Spanish language learning platform that connects Spanish and Japanese students and allows language exchange opportunities/classes
+Dekiru is A Japanese/Spanish language learning platform that connects Spanish and Japanese students and allows language exchange opportunities/classes
 
-# API desplegada
+# Deployed API
 
-La API desplegada puede encontrarse en el enlace: "#####"
+The deployed API can be found at the link: "https://dekiru.fly.dev/"
 
-Todas las rutas descritas en el apartado "Rutas de la aplicación" son endpoints válidos contra esta url. Así, por ejemplo "#####"
+All the routes described in the "Application Routes" section are valid endpoints against this URL. For example, "https://dekiru.fly.dev/api/user/listHomeUsers"
 
-La aplicación completa desplegada se puede encontrar en el siguiente enlace: "####"
+The complete deployed application can be found at the following link: "https://dekiru.vercel.app/"
 
-# Variables de Entorno
+# Environment Variables
 
-Si el proyecto quiere correrse en local, deberá crearse un archivo .env en el directorio raíz. 
+If the project is to be run locally, a .env file must be created in the root directory.
 
-Dicho archivo deberá comprender todas estas variables de entorno:
+This file must include all of these environment variables:
 
-1. PORT
-2. MONGODB_URI
-3. ORIGIN
-4. CLOUDINARY_NAME
-5. CLOUDINARY_KEY
-6. CLOUDINARY_SECRET
-7. TOKEN_SECRET
-8. SALT
+PORT
+MONGODB_URI
+ORIGIN
+CLOUDINARY_NAME
+CLOUDINARY_KEY
+CLOUDINARY_SECRET
+TOKEN_SECRET
+SALT
+STRIPE_API_KEY
 
-Para instalar todas las dependencias utilizadas en el proyecto, simplemente se ha de ejecutar el comando:
+To install all the dependencies used in the project, simply run the command:
 ```
 npm install
 ```
 
-# Colección Postman
+# Postman Collection
 
-En el directorio raíz del proyecto se encontrará una json denominado "####". A lo largo del desarrollo de este proyecto se usa Postman para testear nuestra api. Se puede importar este archivo directamente como una colección en Postman para visualizar todo el trabajo de testeo. Las peticiones están organizadas por carpetas según las correspondientes rutas. De cada petición se incluyen distintos ejemplos de respuestas y manejos de errores.
+In the root directory of the project, you will find a JSON file called "####". Throughout the development of this project, Postman is used to test our API. This file can be imported directly as a collection in Postman to view all the testing work. The requests are organized by folders according to their corresponding routes. Each request includes different examples of responses and error handling.
 
-# Rutas de la aplicación
+# API Routes
 
 ## **User routes**:
 
