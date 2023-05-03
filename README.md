@@ -16,15 +16,15 @@ If the project is to be run locally, a .env file must be created in the root dir
 
 This file must include all of these environment variables:
 
-PORT
-MONGODB_URI
-ORIGIN
-CLOUDINARY_NAME
-CLOUDINARY_KEY
-CLOUDINARY_SECRET
-TOKEN_SECRET
-SALT
-STRIPE_API_KEY
+- PORT
+- MONGODB_URI
+- ORIGIN
+- CLOUDINARY_NAME
+- CLOUDINARY_KEY
+- CLOUDINARY_SECRET
+- TOKEN_SECRET
+- SALT
+- STRIPE_API_KEY
 
 To install all the dependencies used in the project, simply run the command:
 ```
