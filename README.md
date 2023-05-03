@@ -41,20 +41,30 @@ In the root directory of the project, you will find a JSON file called "Dekiru.p
 
 | URL path                    | HTTP Method       | Response                          | Action                        |
 | :--------------------------:|:-----------------:| :--------------------------------:| :----------------------------:|
-| /api/users/list/:language             | GET               | [users]                           | Get all users from the DB     |
+| /api/users/listHomeUsers             | GET               | [users]                           | Get Home Page Displayed Users     |
+| /api/users/listAllPeople             | GET               | [users]                           | Get All DB Users     |
+| /api/users/getUserClasses/:id             | GET               | [classes]                           | Get All User Classes from DB     |
+| /api/users/getUserFriends/:id          | GET               | [users]                           | Get All User Friends from DB     |
 | /api/users/getOneUser/:id             | GET               | {user}                          | Get one User from the DB     |
+| /api/users/getPopulatedUser/:id             | GET               | {user}                          | Get one User with Populated fields from the DB     |
+| /api/users/getUserMatch/:id             | GET               | {user}                          | Get Matched User from the DB     |
+| /api/users/getNearUsers/:userId             | GET               | [users]                          | Get nears Users from DB     |
 | /api/users/edit/:id             | PUT               | {user}                           | Edit user from DB     |
+| /api/users/makeFriend/:friend_id/:id             | PUT               | {updatedUser}                           | UpdatedUser user from DB     |
+| /api/users/unfollow/:friend_id/:id             | PUT               | {updatedUser}                           | updatedUser user from DB     |
 | /api/users/delete/:id             | DELETE               | {msg: "Successfully deleted"}                           | Remove user from DB     |
 
 ## **Class routes**:
 
 | URL path                    | HTTP Method       | Response                          | Action                        |
 | :--------------------------:|:-----------------:| :--------------------------------:| :----------------------------:|
-| /api/class/list         | GET               | [classes]                           | Get all classes from DB     |
-| /api/class/getOne/:class_id         | GET               | {class}                           | Get one class from DB     |
-| /api/class/create         | POST               | {class}                           | Create class     |
-| /api/class/join/:class_id         | PUT            | {msg: "successfully joined the class"}                           | Join one class     |
-| /api/class/leave/:class_id         | PUT            | {msg: "successfully left the class"}                           | Leave one class     |
+| /api/class/list/:skipValue         | GET               | [classes]                           | Get all classes from DB     |
+| /api/class/getOne/:class_id   | GET               | {class}                           | Get one class from DB     |
+| /api/class/create             | POST               | 201                           | Create class     |
+| /api/class/join/:class_id/:user_id         | PUT            | {msg: "successfully joined the class"}                           | Join one class     |
+| /api/class/leave/:class_id/:user_id         | PUT            | {updatedUser}                           | Leave one class     |
+| /api/class/edit/:class_id         | PUT            | {updatedClass}                           | Edit one class     |
+| /api/class/deletee/:class_id         | DELETE            | 200                           | Delete one class     |
 
 ## **Conversation routes**:
             
