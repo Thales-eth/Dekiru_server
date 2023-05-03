@@ -1,0 +1,2017 @@
+{
+	"info": {
+		"_postman_id": "65e28772-2d39-403a-9d54-7e65aaad5c19",
+		"name": "Dekiru",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21704274"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Verify",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4Mjc5Mjc3OCwiZXhwIjoxNjgyOTY1NTc4fQ.LOsisKNgvjom3Q7P8KMV70fWuU6Dc2k58Tj1zAr4LZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/auth/getLoggedUser",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"getLoggedUser"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Verify Successful Query",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/auth/getLoggedUser",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"getLoggedUser"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1105"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"451-wI16ApZyhXIEAK5Tm16KjLa5kCs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Apr 2023 18:26:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"location\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n            40.4023728,\n            -3.7130593\n        ]\n    },\n    \"_id\": \"6447f5d618bc5d6381d05ac5\",\n    \"username\": \"Dan\",\n    \"email\": \"danito@gmail.com\",\n    \"password\": \"$2a$10$naIdBpJuagw/.U3eAyHy3uPwhtGs03iDFUVVVB.3msMZF/CiFN60u\",\n    \"avatar\": \"https://res.cloudinary.com/dagndlfhj/image/upload/v1682536679/movie-gallery/pmelgswuysdldnylvlwv.png\",\n    \"age\": 25,\n    \"role\": \"Student\",\n    \"language\": \"Spanish\",\n    \"interests\": [\n        \"Anime\",\n        \"Manga\",\n        \"Filmmaking\"\n    ],\n    \"penfriends\": [\n        \"64442295babe029c2b290b88\",\n        \"643fd5b22641247a7545b5c6\",\n        \"643fd5f62641247a7545b5cc\",\n        \"6444eebfb424ba72f4c678f8\",\n        \"64478f84164c6f46daca1933\",\n        \"6444ed4eb424ba72f4c678cd\"\n    ],\n    \"matches\": [\n        \"6444ed4eb424ba72f4c678cd\",\n        \"643fd5b22641247a7545b5c6\",\n        \"64442295babe029c2b290b88\"\n    ],\n    \"classes\": [\n        \"6447a05de1acedc7093b0d68\",\n        \"644cff03b4f58b9c13a102a8\",\n        \"644cfe10611f2c01faa15e77\"\n    ],\n    \"posts\": [],\n    \"reviews\": [],\n    \"score\": 0,\n    \"conversations\": [\n        \"64484c73d467046b4014acc7\",\n        \"6449608d27b7745334b4c0af\",\n        \"644960c327b7745334b4c0e6\",\n        \"644a4d356b861af6913a57b0\",\n        \"644a4ef26b861af6913a59f0\",\n        \"644a4f976b861af6913a5c51\",\n        \"644a8166e3aad4e7b93fd16d\",\n        \"644d03b9ab9f90d7ddc7d3f9\",\n        \"644d03bcab9f90d7ddc7d404\",\n        \"644d03d5ab9f90d7ddc7d41e\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "me@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "me",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "Japanese",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "Student",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Username already in use",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "elchapito@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "elchapito",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/signup",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-3nO+omaSr2uGT4NC92DdTFopOO8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Apr 2023 16:20:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"err\": [\n        \"username elchapito already in use!\"\n    ]\n}"
+						},
+						{
+							"name": "Email is required",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "elchapito@gmail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "username",
+											"value": "elchapito",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/signup",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e-fpjZYCasISGdRCYrDNQor9Y5GoQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Apr 2023 16:21:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"err\": [\n        \"An email is needed\"\n    ]\n}"
+						},
+						{
+							"name": "Username required",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "elchapito@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "elchapito",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/signup",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-rgPUa6jgjHvXui3A78bDSFndxO0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Apr 2023 16:22:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"err\": [\n        \"A username is needed!\"\n    ]\n}"
+						},
+						{
+							"name": "Password required",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "elchapito@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "elchapito",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/signup",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-c3VA38DWUuvbhfQ5vmk5DoWV2Tg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Apr 2023 16:22:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"err\": [\n        \"A password is needed!\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "danito@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "danito@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "247"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f7-I+HBE1zzkGaYds/mIS5p0Eg5AYo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Apr 2023 18:26:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4Mjc5Mjc3OCwiZXhwIjoxNjgyOTY1NTc4fQ.LOsisKNgvjom3Q7P8KMV70fWuU6Dc2k58Tj1zAr4LZ4\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get Home Page Users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/listHomeUsers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"listHomeUsers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucessful Get Users Query",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/user/listHomeUsers",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"listHomeUsers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2575"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a0f-yFYCj45aUzNemquxnrz2QOPRh4Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Apr 2023 18:27:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"location\": {\n            \"coordinates\": [\n                0,\n                0\n            ],\n            \"type\": \"Point\"\n        },\n        \"_id\": \"64442295babe029c2b290b88\",\n        \"username\": \"あみ\",\n        \"email\": \"ami@gmail.com\",\n        \"password\": \"$2a$10$wn2tDVB.TF3ilC/cDbmejOogP2VvvhUQ2Gy519zGBeQXkCohUVydG\",\n        \"avatar\": \"https://res.cloudinary.com/dagndlfhj/image/upload/v1682186902/movie-gallery/da3eq3awuuq3wdtz7nt5.jpg\",\n        \"age\": 27,\n        \"role\": \"Student\",\n        \"language\": \"Japanese\",\n        \"interests\": [\n            \"Anime\",\n            \"Manga\",\n            \"Games\"\n        ],\n        \"penfriends\": [\n            \"643fd5f62641247a7545b5cc\",\n            \"64442c5edfd70121d70553c2\"\n        ],\n        \"classes\": [],\n        \"posts\": [\n            \"644672686190a18fb53dd24b\",\n            \"6446733a6190a18fb53dd270\",\n            \"644674256190a18fb53dd2a9\",\n            \"644674366190a18fb53dd2b0\",\n            \"644674426190a18fb53dd2b7\",\n            \"644687517d8c3547f883465a\",\n            \"644687547d8c3547f8834661\",\n            \"644687587d8c3547f8834668\",\n            \"6446875b7d8c3547f883466f\",\n            \"6446875e7d8c3547f8834676\",\n            \"644687617d8c3547f883467d\",\n            \"644687647d8c3547f8834684\",\n            \"644687677d8c3547f883468b\",\n            \"644691f2e9374a6aefe6edff\"\n        ],\n        \"reviews\": [\n            \"6447f24818bc5d6381d05a82\",\n            \"644b91b83c014189e9f18427\"\n        ],\n        \"score\": 5,\n        \"createdAt\": \"2023-04-22T18:08:21.630Z\",\n        \"updatedAt\": \"2023-04-28T09:28:35.980Z\",\n        \"__v\": 1,\n        \"matches\": [],\n        \"conversations\": [\n            \"644a4ef26b861af6913a59f0\",\n            \"644b91c33c014189e9f18434\"\n        ]\n    },\n    {\n        \"location\": {\n            \"coordinates\": [\n                0,\n                0\n            ],\n            \"type\": \"Point\"\n        },\n        \"_id\": \"643fd5b22641247a7545b5c6\",\n        \"username\": \"もも\",\n        \"email\": \"momo@gmail.com\",\n        \"password\": \"$2a$10$YT6rZJJe.x.BSxLBZH9/E.CW41t6Zrig4n1DWl56SkSUW5/fAhmGG\",\n        \"avatar\": \"https://res.cloudinary.com/dagndlfhj/image/upload/v1681905073/movie-gallery/zhdm2hhupwvnufxqhwt0.jpg\",\n        \"age\": 23,\n        \"role\": \"Student\",\n        \"language\": \"Japanese\",\n        \"interests\": [\n            \"Anime\",\n            \"Games\",\n            \"Manga\"\n        ],\n        \"penfriends\": [\n            \"64442c5edfd70121d70553c2\"\n        ],\n        \"classes\": [],\n        \"posts\": [],\n        \"reviews\": [\n            \"644ba6e4b3c6de13ac4d18c9\",\n            \"644ba6f2b3c6de13ac4d18d4\"\n        ],\n        \"score\": 4,\n        \"createdAt\": \"2023-04-19T11:51:14.322Z\",\n        \"updatedAt\": \"2023-04-28T10:58:59.107Z\",\n        \"__v\": 1,\n        \"conversations\": [\n            \"64484c73d467046b4014acc7\",\n            \"644a8166e3aad4e7b93fd16d\",\n            \"644b92293c014189e9f184ea\"\n        ],\n        \"matches\": []\n    },\n    {\n        \"location\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                0,\n                0\n            ]\n        },\n        \"matches\": [],\n        \"_id\": \"643fd5f62641247a7545b5cc\",\n        \"username\": \"ペドロ\",\n        \"email\": \"pedro@gmail.com\",\n        \"password\": \"$2a$10$aneOrHBgS4yZaepJcpGG0enMGHNotsSLAi4GBW2W.OuRkOHQrhFDa\",\n        \"avatar\": \"https://res.cloudinary.com/dagndlfhj/image/upload/v1681905141/movie-gallery/uf1ftwwewisnjgkboxis.jpg\",\n        \"age\": 18,\n        \"role\": \"Student\",\n        \"language\": \"Spanish\",\n        \"interests\": [\n            \"Anime\",\n            \"Soccer\",\n            \"Paella\"\n        ],\n        \"penfriends\": [\n            \"64442295babe029c2b290b88\",\n            \"643fd5b22641247a7545b5c6\"\n        ],\n        \"classes\": [],\n        \"posts\": [],\n        \"reviews\": [\n            \"644644d0746b66063fa49a85\",\n            \"6446482aa7350f2e2ce9d4e8\"\n        ],\n        \"score\": 5,\n        \"createdAt\": \"2023-04-19T11:52:22.140Z\",\n        \"updatedAt\": \"2023-04-26T17:34:05.760Z\",\n        \"__v\": 0,\n        \"conversations\": [\n            \"6449608d27b7745334b4c0af\"\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/listAllPeople",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"listAllPeople"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/getUserClasses/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"getUserClasses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "643db6574e2a26f09c276187"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Friends",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/getUserFriends/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"getUserFriends",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "643db6574e2a26f09c276187"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/getOneUser/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"getOneUser",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "644eb176f68aa62a4e012687"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Populated User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user//getPopulatedUser/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"",
+								"getPopulatedUser",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6447f5d618bc5d6381d05ac5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Match User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/getUserMatch/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"getUserMatch",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "644450993dae2f2f62010587"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Near Users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"coordinates\": [40.4023728, -3.7130593]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user/getNearUsers/:userId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"getNearUsers",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "64442c5edfd70121d70553c2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\": {\r\n        \"type\": \"Point\",\r\n        \"coordinates\": [42.4023728, -3.7130593]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user/edit/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"edit",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64478eb0164c6f46daca192a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Follow Friend",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/makeFriend/:friend_id/:_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"makeFriend",
+								":friend_id",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "friend_id",
+									"value": "64442295babe029c2b290b88"
+								},
+								{
+									"key": "_id",
+									"value": "643fd5f62641247a7545b5cc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow Friend",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "pakito@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "elpako",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "Japanese",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user/unfollow/:friend_id/:_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"unfollow",
+								":friend_id",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "friend_id",
+									"value": "64345943537d18dc29e8a180"
+								},
+								{
+									"key": "_id",
+									"value": "643332c36a4f88c5b609e941"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/delete/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6444f3b5b424ba72f4c679a0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4MzAzNzA4NCwiZXhwIjoxNjgzMjA5ODg0fQ.t6RD3l11qPi5mtbl6qBcm5qdxGg3h3Krq7l8-3VkIHE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Class",
+			"item": [
+				{
+					"name": "Get All Classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/class/list/:skipValue",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"class",
+								"list",
+								":skipValue"
+							],
+							"variable": [
+								{
+									"key": "skipValue",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Class",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/class/getOne/:class_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"class",
+								"getOne",
+								":class_id"
+							],
+							"variable": [
+								{
+									"key": "class_id",
+									"value": "6434597d537d18dc29e8a183"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Fun with Ami",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "遊びに来てね",
+									"type": "text"
+								},
+								{
+									"key": "teacher",
+									"value": "643459f4537d18dc29e8a188",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/class/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"class",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Join Class",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/class/join/:class_id/:user_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"class",
+								"join",
+								":class_id",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "class_id",
+									"value": "6434597d537d18dc29e8a183"
+								},
+								{
+									"key": "user_id",
+									"value": "643db6574e2a26f09c276187"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leave Class",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/class/leave/:class_id/:user_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"class",
+								"leave",
+								":class_id",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "class_id",
+									"value": "64345a00537d18dc29e8a18a"
+								},
+								{
+									"key": "user_id",
+									"value": "643db6574e2a26f09c276187"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4Mjc5Mjc3OCwiZXhwIjoxNjgyOTY1NTc4fQ.LOsisKNgvjom3Q7P8KMV70fWuU6Dc2k58Tj1zAr4LZ4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Conversation",
+			"item": [
+				{
+					"name": "Get Conversations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/conversation/list",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"conversation",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Conversations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/conversation/getUserConversations/:userId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"conversation",
+								"getUserConversations",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "6447f5d618bc5d6381d05ac5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Conversation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/conversation/getOne/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"conversation",
+								"getOne",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Conversation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"participants\": [\"643520cea7affcfc9760b964\", \"64345943537d18dc29e8a180\"],\r\n    \"messages\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/conversation/join",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"conversation",
+								"join"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Conversation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"participants\": [],\r\n    \"messages\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/conversation/delete/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"conversation",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64484bbcea59040dd886c170"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4Mjc5Mjc3OCwiZXhwIjoxNjgyOTY1NTc4fQ.LOsisKNgvjom3Q7P8KMV70fWuU6Dc2k58Tj1zAr4LZ4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "Get All Messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/message/list/:conversation_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"message",
+								"list",
+								":conversation_id"
+							],
+							"variable": [
+								{
+									"key": "conversation_id",
+									"value": "644960c327b7745334b4c0e6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "sender",
+									"value": "64345943537d18dc29e8a180",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Jajajajaja",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/message/create/:conversation_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"message",
+								"create",
+								":conversation_id"
+							],
+							"variable": [
+								{
+									"key": "conversation_id",
+									"value": "643523d1129dc0dc0189c18d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Message",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/message/delete/:message_id/:conversation_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"message",
+								"delete",
+								":message_id",
+								":conversation_id"
+							],
+							"variable": [
+								{
+									"key": "message_id",
+									"value": "6449a93b573b69cd04c7f3c8"
+								},
+								{
+									"key": "conversation_id",
+									"value": "643523d1129dc0dc0189c18d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4Mjc5Mjc3OCwiZXhwIjoxNjgyOTY1NTc4fQ.LOsisKNgvjom3Q7P8KMV70fWuU6Dc2k58Tj1zAr4LZ4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Get All Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/post/list",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"post",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/post/list/getOnePost/:post_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"post",
+								"list",
+								"getOnePost",
+								":post_id"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "6448244f9de6007f0eaf5c32"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single Post Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "dwfwe",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "wefwfw",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "6444f3b5b424ba72f4c679a0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/post/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"post",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Let's practice Japanese for business and marketing",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Learn advanced Japanese",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "64345943537d18dc29e8a180",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/post/edit/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"post",
+								"edit",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6435286171bac7dab51d1107"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/post/delete/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"post",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64469215e9374a6aefe6ee14"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4Mjc5Mjc3OCwiZXhwIjoxNjgyOTY1NTc4fQ.LOsisKNgvjom3Q7P8KMV70fWuU6Dc2k58Tj1zAr4LZ4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Get User Reviews",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/review/list/:user_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"review",
+								"list",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "643fd5cb2641247a7545b5c9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Review",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/review/getOneReview/:review_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"review",
+								"getOneReview",
+								":review_id"
+							],
+							"variable": [
+								{
+									"key": "review_id",
+									"value": "644644d0746b66063fa49a85"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "rating",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Mega buena profe y persona",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "日本語できるよ！",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "643332c36a4f88c5b609e941",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/review/create/:user_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"review",
+								"create",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "643fd5cb2641247a7545b5c9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Review",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "rating",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Super buena profe",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "jujujuju",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/review/edit/:id/:reviewed_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"review",
+								"edit",
+								":id",
+								":reviewed_id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "644644d0746b66063fa49a85"
+								},
+								{
+									"key": "reviewed_id",
+									"value": "643fd5f62641247a7545b5cc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/review/delete/:id/:user_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"review",
+								"delete",
+								":id",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "644646077eb1ba6710dcb3f4"
+								},
+								{
+									"key": "user_id",
+									"value": "643fd5f62641247a7545b5cc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4Mjc5Mjc3OCwiZXhwIjoxNjgyOTY1NTc4fQ.LOsisKNgvjom3Q7P8KMV70fWuU6Dc2k58Tj1zAr4LZ4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageUrl",
+									"type": "file",
+									"src": "/C:/Users/spani/Downloads/japanflag.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/upload",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4Mjc5Mjc3OCwiZXhwIjoxNjgyOTY1NTc4fQ.LOsisKNgvjom3Q7P8KMV70fWuU6Dc2k58Tj1zAr4LZ4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Stripe",
+			"item": [
+				{
+					"name": "Create Checkout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/payment/create-checkout-session",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"payment",
+								"create-checkout-session"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ3ZjVkNjE4YmM1ZDYzODFkMDVhYzUiLCJlbWFpbCI6ImRhbml0b0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkRhbiIsImlhdCI6MTY4Mjc5Mjc3OCwiZXhwIjoxNjgyOTY1NTc4fQ.LOsisKNgvjom3Q7P8KMV70fWuU6Dc2k58Tj1zAr4LZ4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:5005/api"
+		}
+	]
+}

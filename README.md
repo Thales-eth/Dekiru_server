@@ -6,7 +6,7 @@ Dekiru is A Japanese/Spanish language learning platform that connects Spanish an
 
 The deployed API can be found at the link: "https://dekiru.fly.dev/"
 
-All the routes described in the "Application Routes" section are valid endpoints against this URL. For example, "https://dekiru.fly.dev/api/user/listHomeUsers"
+All the routes described in the "API Routes" section are valid endpoints against this URL. For example, "https://dekiru.fly.dev/api/user/listHomeUsers"
 
 The complete deployed application can be found at the following link: "https://dekiru.vercel.app/"
 
@@ -33,7 +33,7 @@ npm install
 
 # Postman Collection
 
-In the root directory of the project, you will find a JSON file called "####". Throughout the development of this project, Postman is used to test our API. This file can be imported directly as a collection in Postman to view all the testing work. The requests are organized by folders according to their corresponding routes. Each request includes different examples of responses and error handling.
+In the root directory of the project, you will find a JSON file called "Dekiru.postman_collection.json". Throughout the development of this project, Postman is used to test our API. This file can be imported directly as a collection in Postman to view all the testing work. The requests are organized by folders according to their corresponding routes. Each request includes different examples of responses and error handling.
 
 # API Routes
 
